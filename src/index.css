@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body{
+    height: 100vh;
+    background-color:rgba(240, 255, 255, 1);
+    }
+    .overlay{
+    height: 100%;
+    width: 100%;
+    opacity: rgba(240, 255, 255, 0.4);
+    position:absolute;
+    z-index: 1;
+    backdrop-filter: blur(3px);
+    }
+
+    .modal{
+       width: 35vw;
+       border:2px solid black;
+       background-color: white;
+       z-index:2;
+       position: absolute;
+      top:250px;
+      left:31vw;
+      border-radius:8px;
+
+    }
+   
+    .card{
+        margin: 1rem;
+        border:4px;
+        border-radius: 1rem;
+        flex-grow: 1;
+        background: linear-gradient(to left, rgb(207, 199, 199) 50%, rgb(234, 219, 200) 50%)right;
+        background-size: 200%;
+        transition:background-position .5s ease-out;
+        font-size:x-large;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 155px;  
+    }
+    .card:hover{
+    background-position: left;
+    }
+    .disable{
+    opacity:0.6;
+    }
+    .btn--active{
+      opacity: 1;
+    }
+     .btn--active:active{
+           transform: translateY(2px);
+     }  
+        .gg-trash {
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            transform: scale(var(--ggs, 1));
+            width: 10px;
+            height: 12px;
+            border: 2px solid transparent;
+            box-shadow:
+                0 0 0 2px,
+                inset -2px 0 0,
+                inset 2px 0 0;
+            border-bottom-left-radius: 1px;
+            border-bottom-right-radius: 1px;
+            margin-top: 4px
+        }
+    
+        .gg-trash::after,
+        .gg-trash::before {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            position: absolute
+        }
+    
+        .gg-trash::after {
+            background: currentColor;
+            border-radius: 3px;
+            width: 16px;
+            height: 2px;
+            top: -4px;
+            left: -5px
+        }
+    
+        .gg-trash::before {
+            width: 10px;
+            height: 4px;
+            border: 2px solid;
+            border-bottom: transparent;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            top: -7px;
+            left: -2px
+        }
+        .sve-btn{
+            align-self: flex-end;
+        }
+        .btn-animation{
+            animation: fadeOut 4s ease forwards;
+            
+        }
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 48px;
+                    height: 22px;
+                }
+        
+                /* Hide default HTML checkbox */
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+        
+                /* The slider */
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+        
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 14px;
+                    width: 14px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+        
+                input:checked+.slider {
+                    background-color: #2196F3;
+                }
+        
+                input:focus+.slider {
+                    box-shadow: 0 0 1px #2196F3;
+                }
+        
+                input:checked+.slider:before {
+                    -webkit-transform: translateX(26px);
+                    -ms-transform: translateX(26px);
+                    transform: translateX(26px);
+                }
+        
+                /* Rounded sliders */
+                .slider.round {
+                    border-radius: 34px;
+                }
+        
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+                .active-ans{
+                    transform: translateX(15px);
+                    background-color: rgba(37, 153, 153, 0.137)  ;
+                    
+                }
+.gradient-background {
+    height: 100vh;
+    background: linear-gradient(326deg,#36808d,
+        #33beb3,
+        #c28ce9);
+    background-size: 180% 180%;
+    animation: gradient-animation 9s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+                  @keyframes fadeOut {
+                      0% {
+                          opacity: 1;
+                      }
+        
+                      100% {
+                          opacity: 0;
+                          display: hidden;
+                      }
+                  }
+        @media (max-width: 640px) {
+           .card{ 
+            padding-top:45px;
+            width:200px;
+            height: 150px;
+           }
+           .sve-btn{
+            align-self:center;
+           }
+            .modal {
+                left: 16vw;
+                width: 300px;
+            
+                }
+           
+        }
+                  @media (max-width: 400px) {
+                      .modal {
+                          left: 8vw;
+                          width: 300px;
+        
+                      }
+        
+                  }
+                .scrollbar::-webkit-scrollbar {
+                    width: 0px;
+                }
+    }
+  
+    /* ... */
+
+
+    
