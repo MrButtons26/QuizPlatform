@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function PlayQuiz() {
   const [state, setState] = useState([]);
   const [quizIndex, setQuizIndex] = useState(-1);
+  const [name, setName] = useState(``);
   useEffect(() => {
     setState(JSON.parse(localStorage.getItem("quizzes")));
   }, []);
@@ -39,6 +40,17 @@ export default function PlayQuiz() {
           ) : null}
           {state !== null && state.length != 0 ? (
             <div className="rounded-xl flex flex-col m-6 mt-16 p-3  bg-white">
+              <div className="ml-3 flex justify-start">
+                <span className="mr-2 text-xl font-semibold ">
+                  Enter Your Name :
+                </span>
+                <input
+                  className="font-thin border-[1.8px] rounded-xl p-[5.5px] focus:outline-none"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
               {state.map((el, index) =>
                 el.visibility === true ? (
                   <div
@@ -48,7 +60,9 @@ export default function PlayQuiz() {
                     <h1 className="text-2xl font-bold">{el.quizName}</h1>
                     <button
                       onClick={() => {
-                        setQuizIndex(index);
+                        if (name !== "") {
+                          setQuizIndex(index);
+                        }
                       }}
                       className="self-end border-2 py-1 px-4 text-lg rounded-full font-semibold hover:bg-black hover:text-white"
                     >
@@ -81,6 +95,7 @@ export default function PlayQuiz() {
       )}
       {quizIndex !== -1 && (
         <DisplayQuestions
+          name={name}
           state={state}
           quizIndex={quizIndex}
         ></DisplayQuestions>
@@ -89,7 +104,7 @@ export default function PlayQuiz() {
   );
 }
 
-function DisplayQuestions({ state, quizIndex }) {
+function DisplayQuestions({ state, quizIndex, name }) {
   const [score, setScore] = useState(0);
   const [questionNum, setQuestionNum] = useState(0);
   const [optionNum, setOptionNum] = useState([-1]);
@@ -124,6 +139,7 @@ function DisplayQuestions({ state, quizIndex }) {
         <div className="pt-20 flex flex-col items-center gradient-background">
           <h1 className="text-3xl font-extralight">Congratulations</h1>
           <h1 className="text-3xl font-extralight">
+            <span className="font-semibold">{name} </span>
             You have Scored <span className="font-semibold">{score}</span> out
             of{" "}
             <span className=" font-semibold">
