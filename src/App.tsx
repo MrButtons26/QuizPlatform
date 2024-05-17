@@ -5,7 +5,11 @@ import CreateQuiz from "./pages/createQuiz";
 import MyQuiz from "./pages/myQuizzes";
 import PlayQuiz from "./pages/playquiz";
 import PageNotFound from "./pages/notFound";
+import { useEffect } from "react";
 function App() {
+  useEffect(() => {
+    document.title = "QuizApp";
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
