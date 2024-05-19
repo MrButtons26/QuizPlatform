@@ -4,8 +4,7 @@
 Welcome to my Quiz Platform, a dynamic React-based application empowering users to effortlessly craft, organize, and engage in quizzes. Whether you're an educator seeking to enrich your classroom experience or a trivia aficionado eager to test your knowledge, our platform offers a versatile solution tailored to your needs.
 
 ### Live link for the website:
-https://starlit-sprite-4d301c.netlify.app/
-
+https://venerable-cucurucho-a8548c.netlify.app/
 ### Features:
 
 - **User-friendly Interface:** Enjoy a clean and intuitive interface designed to enhance the quiz-taking experience.
