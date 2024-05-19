@@ -32,7 +32,11 @@ Clone the project
 ```bash
   https://github.com/MrButtons26/QuizPlatform.git
 ```
+Project Directory
 
+```bash
+  cd quizPlatform
+```
 Install dependencies
 
 ```bash
