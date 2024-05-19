@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//initial state for redux
+
 const initialState = [
   {
     quizName: "",
@@ -12,6 +14,8 @@ const initialState = [
     createdAt: "",
   },
 ];
+
+//combination of action creaters and state
 
 const questionSlice: initialState = createSlice({
   name: "question",

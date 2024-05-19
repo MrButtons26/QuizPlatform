@@ -7,10 +7,12 @@ import PlayQuiz from "./pages/playquiz";
 import PageNotFound from "./pages/notFound";
 import { useEffect } from "react";
 function App() {
+  //effect for chaning the quizName on initialization
   useEffect(() => {
     document.title = "QuizApp";
   }, []);
   return (
+    //Broweser Routing for all the pages
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />

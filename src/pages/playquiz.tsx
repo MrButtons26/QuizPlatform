@@ -5,9 +5,12 @@ export default function PlayQuiz() {
   const [state, setState] = useState([]);
   const [quizIndex, setQuizIndex] = useState(-1);
   const [name, setName] = useState(``);
+
+  //hook for getting quizzes from localStorage
   useEffect(() => {
     setState(JSON.parse(localStorage.getItem("quizzes")));
   }, []);
+  const enterName = useRef();
 
   return (
     <>
@@ -44,7 +47,8 @@ export default function PlayQuiz() {
                   Enter Your Name :
                 </span>
                 <input
-                  className=" w-[120px] p-[3.5px]  font-thin border-[1.8px] rounded-xl sm:p-[5.5px] focus:outline-none sm:w-[250px]"
+                  ref={enterName}
+                  className=" w-[120px] p-[3.5px]  font-thin border-[1.8px] rounded-xl sm:p-[5.5px] sm:w-[250px] focus:outline-0.5"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -61,6 +65,8 @@ export default function PlayQuiz() {
                       onClick={() => {
                         if (name !== "") {
                           setQuizIndex(index);
+                        } else {
+                          enterName.current.focus();
                         }
                       }}
                       className="self-end border-2 py-1 px-4 text-lg rounded-full font-semibold hover:bg-black hover:text-white"
@@ -108,6 +114,9 @@ function DisplayQuestions({ state, quizIndex, name }) {
   const [questionNum, setQuestionNum] = useState(0);
   const [optionNum, setOptionNum] = useState([-1]);
   state[quizIndex].question.length;
+
+  //event handler for setting answer
+
   function setAnswer(i) {
     if (state[quizIndex].questionType === `single`) {
       setOptionNum([i]);
@@ -117,6 +126,9 @@ function DisplayQuestions({ state, quizIndex, name }) {
       setOptionNum(temp);
     }
   }
+
+  //event handler for going to next question
+
   function nextQuestion() {
     let flag = true;
     for (let i of optionNum) {

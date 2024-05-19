@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+//404 Not found page
 export default function PageNotFound() {
   return (
     <>

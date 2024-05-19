@@ -1,12 +1,12 @@
-import { Store } from "@reduxjs/toolkit";
 import Navbar from "../components/Navbar";
 import { useEffect, useReducer, useRef, useState } from "react";
-import { useSelector } from "react-redux";
 import Modal from "../components/Modal";
 import Overlay from "../components/Overlay";
 import { add } from "../redux-tk/questionSlice";
 import { useDispatch } from "react-redux";
 import SaveModal from "../components/SaveModal";
+
+//inital state for usestate hook
 const initialState = [
   {
     quizName: "",
@@ -17,6 +17,9 @@ const initialState = [
     questionType: "",
   },
 ];
+
+//reducer actions for manipulation os questions and validations
+
 function reducer(state, action) {
   switch (action.type) {
     case "quizName":
@@ -139,6 +142,9 @@ export default function CreateQuiz() {
   const options = useRef([]);
 
   const Dispatch = useDispatch();
+
+  //event handler for adding of options
+
   function addOptionNumber() {
     if (optionNumber.length <= 3) {
       setOptionNumber([...optionNumber, true]);
@@ -147,6 +153,9 @@ export default function CreateQuiz() {
       setOptionNumber(optionNumber.map((el, i) => (i === index ? true : el)));
     }
   }
+
+  //event handler for addition of questions
+
   function questionAddition() {
     if (
       state[questionNumber].description == `` ||
@@ -171,6 +180,8 @@ export default function CreateQuiz() {
     dispatch({ type: `addQuestion` });
     setQuestionNumber(questionNumber + 1);
   }
+
+  //event handler for question saving to redux state
 
   function saveQuestions() {
     let options = [];

@@ -2,15 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Overlay from "../components/Overlay";
+
+//myquiz page
 export default function MyQuiz() {
   const [state, setState] = useState([]);
   const [deletionindex, setDelitionIndex] = useState(-1);
+  //hook for getting quizzes from local storage
   useEffect(() => {
     setState(JSON.parse(localStorage.getItem(`quizzes`)));
   }, []);
+
+  //event handler for deletion of quiz from localstorage
+
   function deleteQuizIndex(index) {
     setDelitionIndex(index);
   }
+
   function questiondel(value) {
     if (value === 1) {
       const index = deletionindex;
@@ -21,6 +28,8 @@ export default function MyQuiz() {
     }
     setDelitionIndex(-1);
   }
+
+  //event handler for toggling visibility of quiz
 
   function setVisibility(index) {
     let tempState = state.map((el, i) => {

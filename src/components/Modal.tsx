@@ -1,3 +1,4 @@
+//modal component
 export default function Modal({
   modal,
   setModal,
