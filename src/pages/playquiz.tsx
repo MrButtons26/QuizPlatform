@@ -9,7 +9,6 @@ export default function PlayQuiz() {
     setState(JSON.parse(localStorage.getItem("quizzes")));
   }, []);
 
-  console.log(state);
   return (
     <>
       <div className="flex justify-between p-4 shadow-xl bg-white flex-wrap">
@@ -41,11 +40,11 @@ export default function PlayQuiz() {
           {state !== null && state.length != 0 ? (
             <div className="rounded-xl flex flex-col m-6 mt-16 p-3  bg-white">
               <div className="ml-3 flex justify-start">
-                <span className="mr-2 text-xl font-semibold ">
+                <span className="mr-2 sm:mr-2 text-l font-semibold ">
                   Enter Your Name :
                 </span>
                 <input
-                  className="font-thin border-[1.8px] rounded-xl p-[5.5px] focus:outline-none"
+                  className=" w-[120px] p-[3.5px]  font-thin border-[1.8px] rounded-xl sm:p-[5.5px] focus:outline-none sm:w-[250px]"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -136,12 +135,11 @@ function DisplayQuestions({ state, quizIndex, name }) {
   return (
     <>
       {questionNum === state[quizIndex].question.length && (
-        <div className="pt-20 flex flex-col items-center gradient-background">
+        <div className="pt-20 flex flex-col items-center gradient-background px-1 ">
           <h1 className="text-3xl font-extralight">Congratulations</h1>
           <h1 className="text-3xl font-extralight">
             <span className="font-semibold">{name} </span>
-            You have Scored <span className="font-semibold">{score}</span> out
-            of{" "}
+            You've Scored <span className="font-semibold">{score}</span> out of{" "}
             <span className=" font-semibold">
               {state[quizIndex].question.length}
             </span>{" "}

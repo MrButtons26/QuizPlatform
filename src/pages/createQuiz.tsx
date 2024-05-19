@@ -144,7 +144,6 @@ export default function CreateQuiz() {
       setOptionNumber([...optionNumber, true]);
     } else {
       let index = optionNumber.findIndex((el) => el === false);
-      console.log(index);
       setOptionNumber(optionNumber.map((el, i) => (i === index ? true : el)));
     }
   }
@@ -177,14 +176,12 @@ export default function CreateQuiz() {
     let options = [];
     let answers = [];
     let questions = [];
-    console.log(`saving`);
     for (let i = 0; i < state.length - 1; i++) {
       questions.push(state[i].question);
       answers.push(state[i].answer);
       options.push(state[i].options);
     }
     localStorage.setItem;
-    console.log(options);
     const questionObj = {
       quizName: state[0].quizName,
       description: state[0].description,
@@ -243,7 +240,7 @@ export default function CreateQuiz() {
         <h1 className="text-3xl font-bold mb-6 w-3/4 self-center">
           Create New Quiz
         </h1>
-        <div className="bg-white p-10  self-center w-3/4 border-2 rounded-xl flex flex-col">
+        <div className="bg-white p-2.5  self-center w-3/4 border-2 rounded-xl flex flex-col sm:p-10">
           <input
             required
             type="text"
@@ -416,7 +413,7 @@ function AddOption({
     <div
       ref={(el) => (options.current[index] = el)}
       key={index}
-      className="border-2  border-slate-500 m-2 flex flex-wrap justify-between"
+      className=" border-2  border-slate-500 m-2 flex flex-wrap justify-between"
     >
       <input
         value={state[questionNumber].options[index]}
@@ -431,11 +428,11 @@ function AddOption({
           });
         }}
         type="text"
-        className="border-2 ml-3 mt-3 mb-3 w-4/5"
+        className="ml-1.5 border-2  mt-3 mb-3 w-4/5 sm:ml-3"
       />
       <button
         onClick={() => removaloption(index)}
-        className="gg-trash mt-5 mr-3 active:text-red-500"
+        className="mr-2  gg-trash mt-5 sm:mr-3 active:text-red-500"
       ></button>
       <button
         disabled={state[questionNumber].answer.some((el) => el === index)}
